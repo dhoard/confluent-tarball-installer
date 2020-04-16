@@ -48,7 +48,7 @@ log "INFO" "Creating group.."
 getent group confluent > /dev/null || groupadd -r confluent
 log "INFO" "SUCCESS"
 
-SHELL=/usr/sbin/nologin
+SHELL=/bin/bash
 HOME_ROOT=/home
 USERS="cp-control-center cp-kafka cp-kafka-connect cp-kafka-rest cp-ksql cp-schema-registry"
 for USER in $USERS
