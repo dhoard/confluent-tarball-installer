@@ -44,12 +44,22 @@ WORKING_DIRECTORY=${PWD}
 
 log_banner "INFO" "BEGIN Script configuration ..."
 
-echo "cp ./assets/zookeeper-run.sh /home/cp-kafka"
-echo "chmod u+x /home/cp-kafka/zookeeper-run.sh"
+cp ./assets/zookeeper-run.sh /home/cp-kafka
+chmod u+x /home/cp-kafka/zookeeper-run.sh
 
-echo "cp ./assets/kafka-run.sh /home/cp-kafka"
-echo "chmod u+x /home/cp-kafka/kafka-run.sh"
+cp ./assets/kafka-run.sh /home/cp-kafka
+chmod u+x /home/cp-kafka/kafka-run.sh
 
-echo "chown -R cp-kafka.confluent /home/cp-kafka/*"
+chown -R cp-kafka.confluent /home/cp-kafka/*
+
+cp ./assets/control-center-run.sh /home/cp-control-center
+chmod u+x /home/cp-control-center/control-center-run.sh
+
+chown -R cp-control-center.confluent /home/cp-control-center/*
+
+cp ./assets/ksql-run.sh /home/cp-ksql
+chmod u+x /home/cp-ksql/ksql-run.sh
+
+chown -R cp-ksql /home/cp-ksql/*
 
 log_banner "INFO" "SUCCESS"
