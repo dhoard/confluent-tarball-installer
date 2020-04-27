@@ -52,6 +52,11 @@ chmod u+x /home/cp-kafka/kafka-run.sh
 
 chown -R cp-kafka.confluent /home/cp-kafka/*
 
+cp ./assets/schema-registry-run.sh /home/cp-schema-registry
+chmod u+x /home/cp-schema-registry/schema-registry-run.sh
+
+chown -R cp-schema-registry /home/cp-schema-registry/*
+
 cp ./assets/control-center-run.sh /home/cp-control-center
 chmod u+x /home/cp-control-center/control-center-run.sh
 
@@ -61,5 +66,6 @@ cp ./assets/ksql-run.sh /home/cp-ksql
 chmod u+x /home/cp-ksql/ksql-run.sh
 
 chown -R cp-ksql /home/cp-ksql/*
+
 
 log_banner "INFO" "SUCCESS"
