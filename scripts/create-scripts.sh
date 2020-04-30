@@ -48,9 +48,9 @@ log_banner "INFO" "BEGIN Script configuration ..."
 cp ./assets/zookeeper-run.sh /home/cp-kafka
 chmod u+x /home/cp-kafka/zookeeper-run.sh
 
-cp ./assets/confluent-zookeeper.service /etc/systemd/systemd/confluent-zookeeper.service
-chown root.root /etc/systemd/systemd/confluent-zookeeper.service
-chmod 644 /etc/systemd/systemd/confluent-zookeeper.service
+cp ./assets/confluent-zookeeper.service /etc/systemd/system/confluent-zookeeper.service
+chown root.root /etc/systemd/system/confluent-zookeeper.service
+chmod 644 /etc/systemd/system/confluent-zookeeper.service
 
 # Kafka
 cp ./assets/kafka-run.sh /home/cp-kafka
@@ -59,36 +59,36 @@ chmod u+x /home/cp-kafka/kafka-run.sh
 # ZooKeeper/Kafka
 chown -R cp-kafka.confluent /home/cp-kafka/*
 
-cp ./assets/confluent-kafka.service /etc/systemd/systemd/confluent-kafka.service
-chown root.root /etc/systemd/systemd/confluent-kafka.service
-chmod 644 /etc/systemd/systemd/confluent-kafka.service
+cp ./assets/confluent-kafka.service /etc/systemd/system/confluent-kafka.service
+chown root.root /etc/systemd/system/confluent-kafka.service
+chmod 644 /etc/systemd/system/confluent-kafka.service
 
 # Schema Registry
 cp ./assets/schema-registry-run.sh /home/cp-schema-registry
 chmod u+x /home/cp-schema-registry/schema-registry-run.sh
 chown -R cp-schema-registry.confluent /home/cp-schema-registry*
 
-cp ./assets/confluent-schema-registry.service /etc/systemd/systemd/confluent-schema-registry.service
-chown root.root /etc/systemd/systemd/confluent-schema-registry.service
-chmod 644 /etc/systemd/systemd/confluent-schema-registry.service
+cp ./assets/confluent-schema-registry.service /etc/systemd/system/confluent-schema-registry.service
+chown root.root /etc/systemd/system/confluent-schema-registry.service
+chmod 644 /etc/systemd/system/confluent-schema-registry.service
 
 # KSQL
 cp ./assets/ksql-run.sh /home/cp-ksql
 chmod u+x /home/cp-ksql/ksql-run.sh
 chown -R cp-ksql.confluent /home/cp-ksql/*
 
-cp ./assets/confluent-ksql.service /etc/systemd/systemd/confluent-ksql.service
-chown root.root /etc/systemd/systemd/confluent-ksql.service
-chmod 644 /etc/systemd/systemd/confluent-ksql.service
+cp ./assets/confluent-ksql.service /etc/systemd/system/confluent-ksql.service
+chown root.root /etc/systemd/system/confluent-ksql.service
+chmod 644 /etc/systemd/system/confluent-ksql.service
 
 # Control Center
 cp ./assets/control-center-run.sh /home/cp-control-center
 chmod u+x /home/cp-control-center/control-center-run.sh
 chown -R cp-control-center.confluent /home/cp-control-center/*
 
-cp ./assets/confluent-control-center.service /etc/systemd/systemd/confluent-control-center.service
-chown root.root /etc/systemd/systemd/confluent-control-center.service
-chmod 644 /etc/systemd/systemd/confluent-control-center.service
+cp ./assets/confluent-control-center.service /etc/systemd/system/confluent-control-center.service
+chown root.root /etc/systemd/system/confluent-control-center.service
+chmod 644 /etc/systemd/system/confluent-control-center.service
 
 # Systemd reload
 systemctl daemon-reload
