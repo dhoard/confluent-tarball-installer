@@ -45,58 +45,58 @@ WORKING_DIRECTORY=${PWD}
 log_banner "INFO" "BEGIN Script installation ..."
 
 # ZooKeeper
-log "INFO" "Installing ZooKeeper scripts ..."
+log "INFO" "Installing ZooKeeper script ..."
 cp ./assets/zookeeper-run.sh /home/cp-kafka
 chmod u+x /home/cp-kafka/zookeeper-run.sh
 chown -R cp-kafka.confluent /home/cp-kafka/*
 
 # ZooKeeper systemd
-log "INFO" "Installing ZooKeeper systemd scripts ..."
+log "INFO" "Installing ZooKeeper systemd script ..."
 cp ./assets/confluent-zookeeper.service /etc/systemd/system/confluent-zookeeper.service
 chown root.root /etc/systemd/system/confluent-zookeeper.service
 chmod 644 /etc/systemd/system/confluent-zookeeper.service
 
 # Kafka
-log "INFO" "Installing Kafka scripts ..."
+log "INFO" "Installing Kafka script ..."
 cp ./assets/kafka-run.sh /home/cp-kafka
 chmod u+x /home/cp-kafka/kafka-run.sh
 chown -R cp-kafka.confluent /home/cp-kafka/*
 
 # Kafka systemd
-log "INFO" "Installing ZooKeeper systemd scripts ..."
+log "INFO" "Installing ZooKeeper systemd script ..."
 cp ./assets/confluent-kafka.service /etc/systemd/system/confluent-kafka.service
 chown root.root /etc/systemd/system/confluent-kafka.service
 chmod 644 /etc/systemd/system/confluent-kafka.service
 
 # Schema Registry
-log "INFO" "Installing Schema Registry scripts ..."
+log "INFO" "Installing Schema Registry script ..."
 cp ./assets/schema-registry-run.sh /home/cp-schema-registry
 chmod u+x /home/cp-schema-registry/schema-registry-run.sh
 chown -R cp-schema-registry.confluent /home/cp-schema-registry*
 
-log "INFO" "Installing Schema Registry systemd scripts ..."
+log "INFO" "Installing Schema Registry systemd script ..."
 cp ./assets/confluent-schema-registry.service /etc/systemd/system/confluent-schema-registry.service
 chown root.root /etc/systemd/system/confluent-schema-registry.service
 chmod 644 /etc/systemd/system/confluent-schema-registry.service
 
 # KSQL
-log "INFO" "Installing KSQL/ksqlDB scripts ..."
+log "INFO" "Installing KSQL/ksqlDB script ..."
 cp ./assets/ksql-run.sh /home/cp-ksql
 chmod u+x /home/cp-ksql/ksql-run.sh
 chown -R cp-ksql.confluent /home/cp-ksql/*
 
-log "INFO" "Installing KSQL/ksqlDB systemd scripts ..."
+log "INFO" "Installing KSQL/ksqlDB systemd script ..."
 cp ./assets/confluent-ksql.service /etc/systemd/system/confluent-ksql.service
 chown root.root /etc/systemd/system/confluent-ksql.service
 chmod 644 /etc/systemd/system/confluent-ksql.service
 
 # Control Center
-log "INFO" "Installing Control Center scripts ..."
+log "INFO" "Installing Control Center script ..."
 cp ./assets/control-center-run.sh /home/cp-control-center
 chmod u+x /home/cp-control-center/control-center-run.sh
 chown -R cp-control-center.confluent /home/cp-control-center/*
 
-log "INFO" "Installing Control Center systemd scripts ..."
+log "INFO" "Installing Control Center systemd script ..."
 cp ./assets/confluent-control-center.service /etc/systemd/system/confluent-control-center.service
 chown root.root /etc/systemd/system/confluent-control-center.service
 chmod 644 /etc/systemd/system/confluent-control-center.service
