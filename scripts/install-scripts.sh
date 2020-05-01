@@ -42,55 +42,67 @@ trap catch_errors ERR;
 #
 WORKING_DIRECTORY=${PWD}
 
-log_banner "INFO" "BEGIN Script configuration ..."
+log_banner "INFO" "BEGIN Script installation ..."
 
 # ZooKeeper
+log_banner "INFO" "Installing ZooKeeper scripts..."
 cp ./assets/zookeeper-run.sh /home/cp-kafka
 chmod u+x /home/cp-kafka/zookeeper-run.sh
+chown -R cp-kafka.confluent /home/cp-kafka/*
 
+# ZooKeeper systemd
+log_banner "INFO" "Installing ZooKeeper systemd scripts..."
 cp ./assets/confluent-zookeeper.service /etc/systemd/system/confluent-zookeeper.service
 chown root.root /etc/systemd/system/confluent-zookeeper.service
 chmod 644 /etc/systemd/system/confluent-zookeeper.service
 
 # Kafka
+log_banner "INFO" "Installing Kafka scripts..."
 cp ./assets/kafka-run.sh /home/cp-kafka
 chmod u+x /home/cp-kafka/kafka-run.sh
-
-# ZooKeeper/Kafka
 chown -R cp-kafka.confluent /home/cp-kafka/*
 
+# Kafka systemd
+log_banner "INFO" "Installing ZooKeeper systemd scripts..."
 cp ./assets/confluent-kafka.service /etc/systemd/system/confluent-kafka.service
 chown root.root /etc/systemd/system/confluent-kafka.service
 chmod 644 /etc/systemd/system/confluent-kafka.service
 
 # Schema Registry
+log_banner "INFO" "Installing Schema Registry scripts..."
 cp ./assets/schema-registry-run.sh /home/cp-schema-registry
 chmod u+x /home/cp-schema-registry/schema-registry-run.sh
 chown -R cp-schema-registry.confluent /home/cp-schema-registry*
 
+log_banner "INFO" "Installing Schema Registry systemd scripts..."
 cp ./assets/confluent-schema-registry.service /etc/systemd/system/confluent-schema-registry.service
 chown root.root /etc/systemd/system/confluent-schema-registry.service
 chmod 644 /etc/systemd/system/confluent-schema-registry.service
 
 # KSQL
+log_banner "INFO" "Installing KSQL/ksqlDB scripts..."
 cp ./assets/ksql-run.sh /home/cp-ksql
 chmod u+x /home/cp-ksql/ksql-run.sh
 chown -R cp-ksql.confluent /home/cp-ksql/*
 
+log_banner "INFO" "Installing KSQL/ksqlDB systemd scripts..."
 cp ./assets/confluent-ksql.service /etc/systemd/system/confluent-ksql.service
 chown root.root /etc/systemd/system/confluent-ksql.service
 chmod 644 /etc/systemd/system/confluent-ksql.service
 
 # Control Center
+log_banner "INFO" "Installing Control Center scripts..."
 cp ./assets/control-center-run.sh /home/cp-control-center
 chmod u+x /home/cp-control-center/control-center-run.sh
 chown -R cp-control-center.confluent /home/cp-control-center/*
 
+log_banner "INFO" "Installing Control Center systemd scripts..."
 cp ./assets/confluent-control-center.service /etc/systemd/system/confluent-control-center.service
 chown root.root /etc/systemd/system/confluent-control-center.service
 chmod 644 /etc/systemd/system/confluent-control-center.service
 
 # Systemd reload
+log_banner "INFO" "Running systemd daemon-reload"
 systemctl daemon-reload
 
 log_banner "INFO" "SUCCESS"
