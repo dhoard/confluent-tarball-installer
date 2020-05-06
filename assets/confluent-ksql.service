@@ -1,5 +1,5 @@
 [Unit]
-Description=Confluent KSQL
+Description=Confluent KSQL/ksqlDB
 After=network.target
 
 [Service]

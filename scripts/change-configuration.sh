@@ -44,6 +44,6 @@ WORKING_DIRECTORY=${PWD}
 
 log_banner "INFO" "BEGIN Configuration changes ..."
 
-java -jar ./tools/value-replacer-0.1.0-SNAPSHOT.jar ./tools/value-replacer.txt
+java -jar ./tools/value-replacer-0.1.0-SNAPSHOT.jar "./tools/value-replacer-$VERSION.txt"
 
 log_banner "INFO" "SUCCESS"
