@@ -67,21 +67,21 @@ mkdir -p /var/lib/confluent/control-center
 chmod o-rwx /var/lib/confluent/control-center
 chown -R cp-control-center.confluent /var/lib/confluent/control-center
 
-log "INFO" "Creating [/var/log/kafka] ..."
-mkdir -p /var/log/kafka
-chown -R cp-kafka.confluent /var/log/kafka
-chmod o-rwx /var/log/kafka
-chmod g+rw /var/log/kafka
+#log "INFO" "Creating [/var/log/kafka] ..."
+#mkdir -p /var/log/kafka
+#chown -R cp-kafka.confluent /var/log/kafka
+#chmod o-rwx /var/log/kafka
+#chmod g+rw /var/log/kafka
 
-log "INFO" "Creating [/var/log/confluent] ..."
-mkdir -p /var/log/confluent
-chown -R cp-kafka.confluent /var/log/confluent
-chmod o-rwx /var/log/confluent
-chmod g+rw /var/log/confluent
+#log "INFO" "Creating [/var/log/confluent] ..."
+#mkdir -p /var/log/confluent
+#chown -R cp-kafka.confluent /var/log/confluent
+#chmod o-rwx /var/log/confluent
+#chmod g+rw /var/log/confluent
 
-log "INFO" "Creating [/var/log/confluent/control-center] ..."
-mkdir -p /var/log/confluent/control-center
-chmod o-rwx /var/log/confluent/control-center
-chown -R cp-control-center.confluent /var/log/confluent/control-center
+#log "INFO" "Creating [/var/log/confluent/control-center] ..."
+#mkdir -p /var/log/confluent/control-center
+#chmod o-rwx /var/log/confluent/control-center
+#chown -R cp-control-center.confluent /var/log/confluent/control-center
 
 log_banner "INFO" "SUCCESS"
