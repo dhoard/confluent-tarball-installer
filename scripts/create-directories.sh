@@ -62,6 +62,12 @@ chmod o-rwx /var/lib/confluent
 chmod g+rwx /var/lib/confluent
 chown -R cp-kafka.confluent /var/lib/confluent
 
+log "INFO" "Creating [/var/lib/ksql] ..."
+mkdir -p /var/lib/ksql
+chmod o-rwx /var/lib/ksql
+chmod g+rwx /var/lib/ksql
+chown -R cp-ksql.confluent /var/lib/ksql
+
 log "INFO" "Creating [/var/lib/confluent/control-center] ..."
 mkdir -p /var/lib/confluent/control-center
 chmod o-rwx /var/lib/confluent/control-center
