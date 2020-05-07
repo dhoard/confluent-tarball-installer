@@ -58,7 +58,7 @@ if [ ! -f /opt/confluent/bin/zookeeper-server-start ]; then
     exit -1
 fi
 
-echo "INFO" "Confluent Platform found [/opt/confluent] ..."
+log "INFO" "Confluent Platform found [/opt/confluent] ..."
 
 if [ -d /opt/confluent/etc/ksqldb ]; then
     export VERSION=5.5.x
