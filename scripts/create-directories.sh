@@ -42,7 +42,7 @@ trap catch_errors ERR;
 #
 WORKING_DIRECTORY=${PWD}
 
-log_banner "INFO" "BEGIN creating directories..."
+log_banner "INFO" "BEGIN Directory creation ..."
 
 log "INFO" "Creating [/var/lib/zookeeper] ..."
 mkdir -p /var/lib/zookeeper
@@ -84,4 +84,4 @@ chown -R cp-control-center.confluent /var/lib/confluent/control-center
 #chmod o-rwx /var/log/confluent/control-center
 #chown -R cp-control-center.confluent /var/log/confluent/control-center
 
-log_banner "INFO" "SUCCESS"
+log_banner "INFO" "END Directory creation"

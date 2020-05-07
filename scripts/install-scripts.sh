@@ -105,4 +105,4 @@ chmod 644 /etc/systemd/system/confluent-control-center.service
 log "INFO" "Running systemd daemon-reload ..."
 systemctl daemon-reload
 
-log_banner "INFO" "SUCCESS"
+log_banner "INFO" "END Script installation"

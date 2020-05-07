@@ -42,7 +42,7 @@ trap catch_errors ERR;
 #
 WORKING_DIRECTORY=${PWD}
 
-log_banner "INFO" "BEGIN Creating group and users ..."
+log_banner "INFO" "BEGIN Group and user creation ..."
 
 log "INFO" "Creating group [confluent] ..."
 getent group confluent > /dev/null || groupadd -r confluent
@@ -58,4 +58,4 @@ do
     chown -R $USER.confluent $HOME_ROOT/$USER
 done;
 
-log_banner "INFO" "SUCCESS"
+log_banner "INFO" "END Group and user creation"
