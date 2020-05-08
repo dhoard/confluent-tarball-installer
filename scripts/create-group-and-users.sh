@@ -53,9 +53,10 @@ USERS="cp-control-center cp-kafka cp-kafka-connect cp-kafka-rest cp-ksql cp-sche
 for USER in $USERS
 do
     log "INFO" "Creating user [$USER] ..."
-    getent passwd $USER > /dev/null || /usr/sbin/useradd --comment "$USER" --shell $SHELL -M -r -g confluent --home $HOME $USER
     mkdir -p $HOME_ROOT/$USER
     chown -R $USER.confluent $HOME_ROOT/$USER
+    getent passwd $USER > /dev/null || /usr/sbin/useradd --comment "$USER" --shell $SHELL -M -r -g confluent --home $HOME_ROOT/$USER $USER
+    usermod -d $HOME_ROOT/$USER
 done;
 
 log_banner "INFO" "END Group and user creation"
