@@ -92,9 +92,9 @@ chmod 644 /etc/systemd/system/confluent-ksql.service
 
 # KSQL
 log "INFO" "Installing Kafka Connect script ..."
-cp ./assets/ksql-run.sh /home/cp-kafka-connect
+cp ./assets/kafka-connect-run.sh /home/cp-kafka-connect
 chmod u+x /home/cp-kafka-connect/kafka-connect-run.sh
-chown -R cp-ksql.confluent /home/cp-kafka-connect/*
+chown -R cp-kafka-connect.confluent /home/cp-kafka-connect/*
 
 log "INFO" "Installing Kafka Connect systemd script ..."
 cp ./assets/confluent-kafka-connect.service /etc/systemd/system/confluent-kafka-connect.service
