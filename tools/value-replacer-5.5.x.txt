@@ -34,6 +34,11 @@ newValue ksql.streams.topic.min.insync.replicas=1
 oldValue ksql.streams.state.dir=/some/non-temporary-storage-path/
 newValue ksql.streams.state.dir=/var/lib/ksql
 
+file /opt/confluent/etc/kafka/connect-distributed.properties
+
+oldValue plugin.path=/usr/share/java
+oldValue plugin.path=/opt/confluent/share/java
+
 file /opt/confluent/etc/confluent-control-center/control-center-production.properties
 
 oldValue #confluent.controlcenter.ksql.ksqlDB.url=http://ksql:8088
