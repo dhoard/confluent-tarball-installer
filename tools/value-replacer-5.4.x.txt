@@ -37,7 +37,7 @@ newValue ksql.streams.state.dir=/var/lib/ksql
 file /opt/confluent/etc/kafka/connect-distributed.properties
 
 oldValue plugin.path=/usr/share/java
-oldValue plugin.path=/opt/confluent/share/java
+newValue plugin.path=/opt/confluent/share/java
 
 file /opt/confluent/etc/confluent-control-center/control-center-production.properties
 
