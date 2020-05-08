@@ -56,7 +56,7 @@ do
     mkdir -p $HOME_ROOT/$USER
     chown -R $USER.confluent $HOME_ROOT/$USER
     getent passwd $USER > /dev/null || /usr/sbin/useradd --comment "$USER" --shell $SHELL -M -r -g confluent --home $HOME_ROOT/$USER $USER
-    usermod -d $HOME_ROOT/$USER
+    usermod $USER -d $HOME_ROOT/$USER
 done;
 
 log_banner "INFO" "END Group and user creation"
