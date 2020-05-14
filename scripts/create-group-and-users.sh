@@ -54,8 +54,8 @@ for USER in $USERS
 do
     log "INFO" "Creating user [$USER] ..."
     mkdir -p $HOME_ROOT/$USER
-    chown -R $USER.confluent $HOME_ROOT/$USER
     getent passwd $USER > /dev/null || /usr/sbin/useradd --comment "$USER" --shell $SHELL -M -r -g confluent --home $HOME_ROOT/$USER $USER
+    chown -R $USER.confluent $HOME_ROOT/$USER
     usermod $USER -d $HOME_ROOT/$USER
 done;
 
