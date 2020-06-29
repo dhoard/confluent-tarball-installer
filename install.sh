@@ -66,6 +66,11 @@ else
     export VERSION=5.4.x
 fi
 
+# 5.3.x does not contain a ksql-production-server.properties, we create it for consistency
+if [ ! -f /opt/confluent/etc/ksql/ksql-production-server.properties ]; then
+    cp /opt/confluent/etc/ksql/ksql-server.properties /opt/confluent/etc/ksql/ksql-production-server.properties
+fi
+
 ./scripts/create-group-and-users.sh
 ./scripts/create-directories.sh
 ./scripts/install-scripts.sh
