@@ -17,6 +17,8 @@ newValue confluent.metrics.reporter.bootstrap.servers=localhost:9092
 oldValue #confluent.metrics.reporter.topic.replicas=1
 newValue confluent.metrics.reporter.topic.replicas=1
 
+appendValue confluent.schema.registry.url=http://localhost:8081
+
 file /opt/confluent/etc/ksqldb/ksql-production-server.properties
 
 oldValue ksql.internal.topic.replicas=3
