@@ -117,6 +117,7 @@ log "INFO" "Running systemd daemon-reload ..."
 systemctl daemon-reload
 
 # Admin shell scripts
+log "INFO" "Install administrator scripts ..."
 cp ./assets/1_confluent_zookeeper.sh /
 cp ./assets/2_confluent_kafka.sh /
 cp ./assets/3_confluent_schema-registry.sh /
