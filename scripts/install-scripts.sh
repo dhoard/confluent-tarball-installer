@@ -116,4 +116,18 @@ chmod 644 /etc/systemd/system/confluent-control-center.service
 log "INFO" "Running systemd daemon-reload ..."
 systemctl daemon-reload
 
+# Admin shell scripts
+cp ./assets/1_confluent_zookeeper.sh /
+cp ./assets/2_confluent_kafka.sh /
+cp ./assets/3_confluent_schema-registry.sh /
+cp ./assets/4_confluent_control-center.sh /
+cp ./assets/5_confluent_kafka-connect.sh /
+cp ./assets/6_confluent_kafka-rest.sh /
+cp ./assets/7_confluent_ksql.sh /
+cp ./assets/confluent_delete_logs.sh /
+cp ./assets/confluent_start.sh /
+cp ./assets/confluent_status.sh /
+cp ./assets/confluent_stop.sh /
+chmod u+x /*.sh
+
 log_banner "INFO" "END Script installation"
