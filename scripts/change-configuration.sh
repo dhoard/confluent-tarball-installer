@@ -44,6 +44,9 @@ WORKING_DIRECTORY=${PWD}
 
 log_banner "INFO" "BEGIN Configuration changes ..."
 
-java -jar ./tools/value-replacer-0.2.0.jar "./tools/value-replacer-$VERSION.txt"
+# Get the FQDN
+HOSTNAME=`hostname -A`
+
+java -jar ./tools/value-replacer-0.3.0.jar "./tools/value-replacer-$VERSION.txt" $HOSTNAME
 
 log_banner "INFO" "END Configuration changes"
