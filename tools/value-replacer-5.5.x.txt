@@ -12,12 +12,12 @@ oldValue #metric.reporters=io.confluent.metrics.reporter.ConfluentMetricsReporte
 newValue metric.reporters=io.confluent.metrics.reporter.ConfluentMetricsReporter
 
 oldValue #confluent.metrics.reporter.bootstrap.servers=localhost:9092
-newValue confluent.metrics.reporter.bootstrap.servers={{ .Hostname }}:9092
+newValue confluent.metrics.reporter.bootstrap.servers={{ hostname }}:9092
 
 oldValue #confluent.metrics.reporter.topic.replicas=1
 newValue confluent.metrics.reporter.topic.replicas=1
 
-appendValue confluent.schema.registry.url=http://{{ .Hostname }}:8081
+appendValue confluent.schema.registry.url=http://{{ hostname }}:8081
 
 file /opt/confluent/etc/ksqldb/ksql-production-server.properties
 
@@ -44,13 +44,13 @@ newValue plugin.path=/opt/confluent/share/java,/opt/connectors
 file /opt/confluent/etc/confluent-control-center/control-center-production.properties
 
 oldValue #confluent.controlcenter.ksql.ksqlDB.url=http://ksql:8088
-newValue confluent.controlcenter.ksql.ksqlDB.url=http://{{ .Hostname }}:8088
+newValue confluent.controlcenter.ksql.ksqlDB.url=http://{{ hostname }}:8088
 
 oldValue #confluent.controlcenter.schema.registry.url=http://schema-registry:8081
-newValue confluent.controlcenter.schema.registry.url=http://{{ .Hostname }}:8081
+newValue confluent.controlcenter.schema.registry.url=http://{{ hostname }}:8081
 
 oldValue #confluent.controlcenter.connect.cluster=http://connect1:8083
-newValue confluent.controlcenter.connect.cluster=http://{{ .Hostname }}:8083
+newValue confluent.controlcenter.connect.cluster=http://{{ hostname }}:8083
 
 oldValue #confluent.controlcenter.internal.topics.replication=3
 newValue confluent.controlcenter.internal.topics.replication=1
