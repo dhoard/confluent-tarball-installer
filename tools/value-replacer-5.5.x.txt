@@ -5,6 +5,9 @@ newValue dataDir=/var/lib/zookeeper
 
 file /opt/confluent/etc/kafka/server.properties
 
+oldValue zookeeper.connect=localhost:2181
+newValue zookeeper.connect={{ hostname }}:2181
+
 oldValue log.dirs=/tmp/kafka-logs
 newValue log.dirs=/var/lib/kafka
 
