@@ -24,9 +24,6 @@ appendValue confluent.schema.registry.url=http://{{ hostname }}:8081
 
 file /opt/confluent/etc/ksqldb/ksql-production-server.properties
 
-oldValue bootstrap.servers=localhost:9092
-newValue bootstrap.servers={{ hostname }}:9092
-
 oldValue ksql.internal.topic.replicas=3
 newValue ksql.internal.topic.replicas=1
 
@@ -43,6 +40,9 @@ oldValue ksql.streams.state.dir=/some/non-temporary-storage-path/
 newValue ksql.streams.state.dir=/var/lib/ksql
 
 file /opt/confluent/etc/kafka/connect-distributed.properties
+
+oldValue bootstrap.servers=localhost:9092
+newValue bootstrap.servers={{ hostname }}:9092
 
 oldValue plugin.path=/usr/share/java
 newValue plugin.path=/opt/confluent/share/java,/opt/connectors
