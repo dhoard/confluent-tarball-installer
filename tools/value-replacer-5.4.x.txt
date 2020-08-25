@@ -41,6 +41,9 @@ newValue ksql.streams.state.dir=/var/lib/ksql
 
 file /opt/confluent/etc/kafka/connect-distributed.properties
 
+oldValue bootstrap.servers=localhost:9092
+newValue bootstrap.servers={{ hostname }}:9092
+
 oldValue plugin.path=/usr/share/java
 newValue plugin.path=/opt/confluent/share/java,/opt/connectors
 
