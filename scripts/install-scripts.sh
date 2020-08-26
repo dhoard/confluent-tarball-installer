@@ -123,8 +123,8 @@ cp ./assets/2_confluent_kafka.sh /
 cp ./assets/3_confluent_schema-registry.sh /
 cp ./assets/4_confluent_control-center.sh /
 cp ./assets/5_confluent_kafka-connect.sh /
-cp ./assets/6_confluent_kafka-rest.sh /
-cp ./assets/7_confluent_ksql.sh /
+cp ./assets/6_confluent_ksql.sh /
+cp ./assets/_confluent_kafka-rest.sh /
 cp ./assets/confluent_delete_logs.sh /
 cp ./assets/confluent_start.sh /
 cp ./assets/confluent_status.sh /
