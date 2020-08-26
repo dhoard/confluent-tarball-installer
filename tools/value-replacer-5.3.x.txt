@@ -49,6 +49,9 @@ newValue plugin.path=/opt/confluent/share/java,/opt/connectors
 
 file /opt/confluent/etc/confluent-control-center/control-center-production.properties
 
+oldValue confluent.controlcenter.data.dir=/tmp/confluent/control-center
+newValue confluent.controlcenter.data.dir=/var/lib/confluent/control-center
+
 oldValue #confluent.controlcenter.ksql.url=http://ksql:8088
 newValue confluent.controlcenter.ksql.url=http://{{ hostname }}:8088
 

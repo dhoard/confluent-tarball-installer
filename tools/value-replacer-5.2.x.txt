@@ -44,10 +44,13 @@ file /opt/confluent/etc/kafka/connect-distributed.properties
 oldValue bootstrap.servers=localhost:9092
 newValue bootstrap.servers={{ hostname }}:9092
 
-oldValue plugin.path=/usr/share/java
+oldValue plugin.path=share/java
 newValue plugin.path=/opt/confluent/share/java,/opt/connectors
 
 file /opt/confluent/etc/confluent-control-center/control-center-production.properties
+
+oldValue confluent.controlcenter.data.dir=/tmp/confluent/control-center
+newValue confluent.controlcenter.data.dir=/var/lib/confluent/control-center
 
 oldValue #confluent.controlcenter.ksql.url=http://ksql:8088
 newValue confluent.controlcenter.ksql.url=http://{{ hostname }}:8088
