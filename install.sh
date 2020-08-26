@@ -60,21 +60,36 @@ fi
 
 log "INFO" "Confluent Platform found [/opt/confluent] ..."
 
-if [ -d /opt/confluent/etc/ksqldb ]; then
-    export VERSION=5.5.x
-else
-    export VERSION=5.4.x
+export VERSION=
+
+COUNT=`grep "v5.5" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
+if [ "1" = "$COUNT" ]; then
+  export VERSION=5.5.x
+fi
+
+COUNT=`grep "v5.4" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
+if [ "1" = "$COUNT" ]; then
+  export VERSION=5.4.x
+fi
+
+COUNT=`grep "v5.3" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
+if [ "1" = "$COUNT" ]; then
+  export VERSION=5.3.x
+fi
+
+if [ "" = VERSION ]; then
+  log "ERROR" "Unknown/unsupported version"
+  exit 1
 fi
 
 if [ -d /opt/confluent/etc/ksql ]; then
   # 5.3.x does not contain a ksql-production-server.properties, we create it for consistency
   if [ ! -f /opt/confluent/etc/ksql/ksql-production-server.properties ]; then
-    export VERSION=5.3.x
     cp /opt/confluent/etc/ksql/ksql-server.properties /opt/confluent/etc/ksql/ksql-production-server.properties
   fi
 fi
 
-log "INFO" "Assuming version $VERSION..."
+log "INFO" "Version $VERSION..."
 
 ./scripts/create-group-and-users.sh
 ./scripts/create-directories.sh
