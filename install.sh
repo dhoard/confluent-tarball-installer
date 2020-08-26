@@ -42,7 +42,7 @@ trap catch_errors ERR;
 #
 WORKING_DIRECTORY=${PWD}
 
-log_banner "INFO" "Installing ..."
+log_banner "INFO" "Installing"
 
 JAVA=`command -v java`
 
@@ -51,14 +51,14 @@ if [ "$JAVA" = "" ]; then
     exit -1
 fi
 
-log "INFO" "Java found [$JAVA] ..."
+log "INFO" "Java found [$JAVA]"
 
 if [ ! -f /opt/confluent/bin/zookeeper-server-start ]; then
     log "ERROR" "Confluent Platform doesn't appear to be installed in /opt/confluent"
     exit -1
 fi
 
-log "INFO" "Confluent Platform found [/opt/confluent] ..."
+log "INFO" "Confluent Platform found [/opt/confluent]"
 
 export VERSION=
 
@@ -89,7 +89,7 @@ if [ -d /opt/confluent/etc/ksql ]; then
   fi
 fi
 
-log "INFO" "Version $VERSION..."
+log "INFO" "Version [$VERSION]"
 
 ./scripts/create-group-and-users.sh
 ./scripts/create-directories.sh
