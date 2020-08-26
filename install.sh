@@ -60,7 +60,7 @@ fi
 
 log "INFO" "Confluent Platform found [/opt/confluent]"
 
-export VERSION=
+export VERSION=unknown
 
 COUNT=`grep "v5.5" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
 if [ "1" = "$COUNT" ]; then
@@ -77,8 +77,14 @@ if [ "1" = "$COUNT" ]; then
   export VERSION=5.3.x
 fi
 
-if [ "" = VERSION ]; then
+COUNT=`grep "v5.2" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
+if [ "1" = "$COUNT" ]; then
+  export VERSION=5.2.x
+fi
+
+if [ "unknown" = "$VERSION" ]; then
   log "ERROR" "Unknown/unsupported version"
+  log_banner "ERROR" "Installation failed"
   exit 1
 fi
 
