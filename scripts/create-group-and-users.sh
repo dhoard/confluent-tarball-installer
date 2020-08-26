@@ -42,9 +42,9 @@ trap catch_errors ERR;
 #
 WORKING_DIRECTORY=${PWD}
 
-log_banner "INFO" "BEGIN Group and user creation ..."
+log_banner "INFO" "BEGIN Group and user creation"
 
-log "INFO" "Creating group [confluent] ..."
+log "INFO" "Creating / checking group [confluent]"
 getent group confluent > /dev/null || groupadd -r confluent
 
 SHELL=/bin/bash
@@ -52,11 +52,11 @@ HOME_ROOT=/home
 USERS="cp-control-center cp-kafka cp-kafka-connect cp-kafka-rest cp-ksql cp-schema-registry"
 for USER in $USERS
 do
-    log "INFO" "Creating user [$USER] ..."
+    log "INFO" "Creating / checking user [$USER]"
     mkdir -p $HOME_ROOT/$USER
     getent passwd $USER > /dev/null || /usr/sbin/useradd --comment "$USER" --shell $SHELL -M -r -g confluent --home $HOME_ROOT/$USER $USER
     chown -R $USER.confluent $HOME_ROOT/$USER
-    usermod $USER -d $HOME_ROOT/$USER
+    usermod $USER -d $HOME_ROOT/$USER > /dev/null
 done;
 
 log_banner "INFO" "END Group and user creation"

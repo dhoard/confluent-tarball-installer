@@ -42,7 +42,7 @@ trap catch_errors ERR;
 #
 WORKING_DIRECTORY=${PWD}
 
-log_banner "INFO" "BEGIN Configuration changes ..."
+log_banner "INFO" "BEGIN Configuration changes"
 
 # Get the FQDN
 HOSTNAME=`hostname -A`
