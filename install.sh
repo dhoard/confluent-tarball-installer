@@ -89,7 +89,7 @@ if [ -d /opt/confluent/etc/ksql ]; then
   fi
 fi
 
-log "INFO" "Version [$VERSION]"
+log "INFO" "Confluent Platform version [$VERSION]"
 
 ./scripts/create-group-and-users.sh
 ./scripts/create-directories.sh
