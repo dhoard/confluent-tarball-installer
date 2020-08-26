@@ -24,6 +24,9 @@ appendValue confluent.schema.registry.url=http://{{ hostname }}:8081
 
 file /opt/confluent/etc/ksql/ksql-production-server.properties
 
+oldValue bootstrap.servers=localhost:9092
+newValue bootstrap.servers={{ hostname }}:9092
+
 oldValue listeners=http://localhost:8088
 newValue listeners=http://0.0.0.0:8088
 
