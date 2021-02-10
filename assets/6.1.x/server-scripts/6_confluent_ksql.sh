@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICE=confluent-ksql
+SERVICE=confluent-ksqldb
 ACTION=${1}
 SCRIPT_NAME=`basename "$0"`
 
