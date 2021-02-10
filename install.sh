@@ -60,57 +60,19 @@ fi
 
 log "INFO" "Confluent Platform found [/opt/confluent]"
 
-export VERSION=unknown
+export VERSION=Incompatible
 
 COUNT=`grep "v6.1" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
-if [ "1" = "$COUNT" ]; then
-  export VERSION=6.1.x
-fi
-
-COUNT=`grep "v6.0" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
-if [ "1" = "$COUNT" ]; then
-  export VERSION=6.0.x
-fi
-
-COUNT=`grep "v5.5" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
-if [ "1" = "$COUNT" ]; then
-  export VERSION=5.5.x
-fi
-
-COUNT=`grep "v5.4" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
-if [ "1" = "$COUNT" ]; then
-  export VERSION=5.4.x
-fi
-
-COUNT=`grep "v5.3" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
-if [ "1" = "$COUNT" ]; then
-  export VERSION=5.3.x
-fi
-
-COUNT=`grep "v5.2" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
-if [ "1" = "$COUNT" ]; then
-  export VERSION=5.2.x
-fi
-
-if [ "unknown" = "$VERSION" ]; then
-  log "ERROR" "Unknown/unsupported version"
+if [ "1" != "$COUNT" ]; then
+  log "ERROR" "This code is only for Confluent Platform 6.1.x"
   log_banner "ERROR" "Installation failed"
   exit 1
 fi
 
-if [ -d /opt/confluent/etc/ksql ]; then
-  # 5.3.x does not contain a ksql-production-server.properties, we create it for consistency
-  if [ ! -f /opt/confluent/etc/ksql/ksql-production-server.properties ]; then
-    cp /opt/confluent/etc/ksql/ksql-server.properties /opt/confluent/etc/ksql/ksql-production-server.properties
-  fi
-fi
-
-log "INFO" "Confluent Platform version [$VERSION]"
-
-export SCRIPTS_ROOT=./assets/$VERSION/scripts
-export SERVER_SCRIPTS_ROOT=./assets/$VERSION/server-scripts
-export SERVER_SERVICES_ROOT=./assets/$VERSION/server-services
-export VALUES_ROOT=./assets/$VERSION/values
+export SCRIPTS_ROOT=./assets/scripts
+export SERVER_SCRIPTS_ROOT=./assets/server-scripts
+export SERVER_SERVICES_ROOT=./assets/server-services
+export VALUES_ROOT=./assets/values
 
 $SCRIPTS_ROOT/create-group-and-users.sh
 $SCRIPTS_ROOT/create-directories.sh
