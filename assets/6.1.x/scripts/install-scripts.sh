@@ -97,7 +97,7 @@ chmod u+x /home/cp-kafka-connect/kafka-connect-run.sh
 chown -R cp-kafka-connect.confluent /home/cp-kafka-connect/*
 
 log "INFO" "Installing Kafka Connect systemd script"
-cp $SERVER_SCRIPTS_ROOT/ /etc/systemd/system/confluent-kafka-connect.service
+cp $SERVER_SERVICES_ROOT/confluent-kafka-connect.service /etc/systemd/system/confluent-kafka-connect.service
 chown root.root /etc/systemd/system/confluent-kafka-connect.service
 chmod 644 /etc/systemd/system/confluent-kafka-connect.service
 
