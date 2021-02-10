@@ -123,7 +123,7 @@ cp $SERVER_SCRIPTS_ROOT/2_confluent_server.sh /
 cp $SERVER_SCRIPTS_ROOT/3_confluent_schema-registry.sh /
 cp $SERVER_SCRIPTS_ROOT/4_confluent_control-center.sh /
 cp $SERVER_SCRIPTS_ROOT/5_confluent_kafka-connect.sh /
-cp $SERVER_SCRIPTS_ROOT/6_confluent_ksql.sh /
+cp $SERVER_SCRIPTS_ROOT/6_confluent_ksqldb.sh /
 cp $SERVER_SCRIPTS_ROOT/_confluent_kafka-rest.sh /
 cp $SERVER_SCRIPTS_ROOT/confluent_delete_logs.sh /
 cp $SERVER_SCRIPTS_ROOT/confluent_start.sh /
