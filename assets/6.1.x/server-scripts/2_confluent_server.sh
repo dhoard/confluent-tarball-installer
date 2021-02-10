@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICE=confluent-kafka
+SERVICE=confluent-server
 ACTION=${1}
 SCRIPT_NAME=`basename "$0"`
 
