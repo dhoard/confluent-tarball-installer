@@ -107,10 +107,15 @@ fi
 
 log "INFO" "Confluent Platform version [$VERSION]"
 
-SCRIPTS_ROOT=./assets/$VERSION/SCRIPTS
+SCRIPTS_ROOT=./assets/$VERSION/scripts
 SERVER_SCRIPTS_ROOT=./assets/$VERSION/server-scripts
 SERVER_SERVICES_ROOT=./assets/$VERSION/server-services
 VALUES_ROOT=./assets/$VERSION/values
+
+export $SCRIPTS_ROOT
+export $SERVER_SCRIPTS_ROOT
+export $SERVER_SERVICES_ROOT
+export $VALUES_ROOT
 
 $SCRIPTS_ROOT/create-group-and-users.sh
 $SCRIPTS_ROOT/create-directories.sh

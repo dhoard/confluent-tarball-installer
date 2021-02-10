@@ -65,8 +65,8 @@ chown -R cp-kafka.confluent /home/cp-kafka/*
 # Kafka systemd
 log "INFO" "Installing ZooKeeper systemd script"
 cp $SERVER_SERVICES_ROOT/confluent-server.service /etc/systemd/system/confluent-server.service
-chown root.root /etc/systemd/system/confluent-kafka.service
-chmod 644 /etc/systemd/system/confluent-kafka.service
+chown root.root /etc/systemd/system/confluent-server.service
+chmod 644 /etc/systemd/system/confluent-server.service
 
 # Schema Registry
 log "INFO" "Installing Schema Registry run script"
@@ -97,7 +97,7 @@ chmod u+x /home/cp-kafka-connect/kafka-connect-run.sh
 chown -R cp-kafka-connect.confluent /home/cp-kafka-connect/*
 
 log "INFO" "Installing Kafka Connect systemd script"
-cp ./assets/confluent-kafka-connect.service /etc/systemd/system/confluent-kafka-connect.service
+cp $SERVER_SCRIPTS_ROOT/ /etc/systemd/system/confluent-kafka-connect.service
 chown root.root /etc/systemd/system/confluent-kafka-connect.service
 chmod 644 /etc/systemd/system/confluent-kafka-connect.service
 
