@@ -86,9 +86,9 @@ chmod u+x /home/cp-ksql/ksql-run.sh
 chown -R cp-ksql.confluent /home/cp-ksql/*
 
 log "INFO" "Installing KSQL/ksqlDB systemd script"
-cp $SERVER_SERVICES_ROOT/confluent-ksql.service /etc/systemd/system/confluent-ksql.service
-chown root.root /etc/systemd/system/confluent-ksql.service
-chmod 644 /etc/systemd/system/confluent-ksql.service
+cp $SERVER_SERVICES_ROOT/confluent-ksqldb.service /etc/systemd/system/confluent-ksqldb.service
+chown root.root /etc/systemd/system/confluent-ksqldb.service
+chmod 644 /etc/systemd/system/confluent-ksqldb.service
 
 # KSQL
 log "INFO" "Installing Kafka Connect script"
