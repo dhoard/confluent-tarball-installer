@@ -107,9 +107,14 @@ fi
 
 log "INFO" "Confluent Platform version [$VERSION]"
 
-./scripts/create-group-and-users.sh
-./scripts/create-directories.sh
-./scripts/install-scripts.sh
-./scripts/change-configuration.sh
+SCRIPTS_ROOT=./assets/$VERSION/SCRIPTS
+SERVER_SCRIPTS_ROOT=./assets/$VERSION/server-scripts
+SERVER_SERVICES_ROOT=./assets/$VERSION/server-services
+VALUES_ROOT=./assets/$VERSION/values
+
+$SCRIPTS_ROOT/create-group-and-users.sh
+$SCRIPTS_ROOT/create-directories.sh
+$SCRIPTS_ROOT/install-scripts.sh
+$SCRIPTS_ROOT/change-configuration.sh
 
 log_banner "INFO" "Installation successful"

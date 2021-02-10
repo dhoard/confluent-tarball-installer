@@ -47,6 +47,6 @@ log_banner "INFO" "BEGIN Configuration changes"
 # Get the FQDN
 HOSTNAME=`hostname -A`
 
-java -jar ./tools/value-replacer-0.3.0.jar "./tools/value-replacer-$VERSION.txt" $HOSTNAME
+java -jar ./tools/value-replacer-0.3.0.jar "$VALUES_ROOT/values.txt" $HOSTNAME
 
 log_banner "INFO" "END Configuration changes"
