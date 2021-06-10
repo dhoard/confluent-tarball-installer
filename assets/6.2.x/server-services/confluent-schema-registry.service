@@ -1,0 +1,15 @@
+[Unit]
+Description=Confluent Schema Registry
+After=network.target
+
+[Service]
+Type=simple
+User=cp-schema-registry
+Group=confluent
+WorkingDirectory=/home/cp-schema-registry
+ExecStart=/home/cp-schema-registry/schema-registry-run.sh
+TimeoutStopSec=180
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

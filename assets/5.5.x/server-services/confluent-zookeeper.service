@@ -1,0 +1,15 @@
+[Unit]
+Description=Confluent ZooKeeper
+After=network.target
+
+[Service]
+Type=simple
+User=cp-kafka
+Group=confluent
+WorkingDirectory=/home/cp-kafka
+ExecStart=/home/cp-kafka/zookeeper-run.sh
+TimeoutStopSec=180
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

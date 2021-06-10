@@ -62,6 +62,11 @@ log "INFO" "Confluent Platform found [/opt/confluent]"
 
 export VERSION=unknown
 
+COUNT=`grep "v6.2" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
+if [ "1" = "$COUNT" ]; then
+  export VERSION=6.2.x
+fi
+
 COUNT=`grep "v6.1" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
 if [ "1" = "$COUNT" ]; then
   export VERSION=6.1.x
@@ -98,18 +103,16 @@ if [ "unknown" = "$VERSION" ]; then
   exit 1
 fi
 
-if [ -d /opt/confluent/etc/ksql ]; then
-  # 5.3.x does not contain a ksql-production-server.properties, we create it for consistency
-  if [ ! -f /opt/confluent/etc/ksql/ksql-production-server.properties ]; then
-    cp /opt/confluent/etc/ksql/ksql-server.properties /opt/confluent/etc/ksql/ksql-production-server.properties
-  fi
-fi
-
 log "INFO" "Confluent Platform version [$VERSION]"
 
-./scripts/create-group-and-users.sh
-./scripts/create-directories.sh
-./scripts/install-scripts.sh
-./scripts/change-configuration.sh
+export SCRIPTS_ROOT=./assets/$VERSION/scripts
+export SERVER_SCRIPTS_ROOT=./assets/$VERSION/server-scripts
+export SERVER_SERVICES_ROOT=./assets/$VERSION/server-services
+export VALUES_ROOT=./assets/$VERSION/values
+
+$SCRIPTS_ROOT/create-group-and-users.sh
+$SCRIPTS_ROOT/create-directories.sh
+$SCRIPTS_ROOT/install-scripts.sh
+$SCRIPTS_ROOT/change-configuration.sh
 
 log_banner "INFO" "Installation successful"

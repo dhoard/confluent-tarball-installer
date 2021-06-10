@@ -1,0 +1,15 @@
+[Unit]
+Description=Confluent Kafka Connect
+After=network.target
+
+[Service]
+Type=simple
+User=cp-kafka-connect
+Group=confluent
+WorkingDirectory=/home/cp-kafka-connect
+ExecStart=/home/cp-kafka-connect/kafka-connect-run.sh
+TimeoutStopSec=180
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
