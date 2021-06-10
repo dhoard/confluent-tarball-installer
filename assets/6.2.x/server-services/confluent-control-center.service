@@ -1,0 +1,15 @@
+[Unit]
+Description=Confluent Confluent Center
+After=network.target
+
+[Service]
+Type=simple
+User=cp-control-center
+Group=confluent
+WorkingDirectory=/home/cp-control-center
+ExecStart=/home/cp-control-center/control-center-run.sh
+TimeoutStopSec=180
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

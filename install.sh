@@ -62,6 +62,11 @@ log "INFO" "Confluent Platform found [/opt/confluent]"
 
 export VERSION=unknown
 
+COUNT=`grep "v6.2" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
+if [ "1" = "$COUNT" ]; then
+  export VERSION=6.2.x
+fi
+
 COUNT=`grep "v6.1" /opt/confluent/share/doc/confluent-control-center/version.txt | wc -l || true`
 if [ "1" = "$COUNT" ]; then
   export VERSION=6.1.x
