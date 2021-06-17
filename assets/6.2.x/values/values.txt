@@ -78,3 +78,8 @@ newValue confluent.monitoring.interceptor.topic.replication=1
 
 oldValue #confluent.metrics.topic.replication=3
 newValue confluent.metrics.topic.replication=1
+
+file /opt/confluent/etc/kafka/connect-log4j.properties
+
+oldValue log4j.rootLogger=INFO, stdout, connectAppender
+newValue log4j.rootLogger=INFO, stdout
