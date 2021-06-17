@@ -64,6 +64,9 @@ newValue confluent.controlcenter.schema.registry.url=http://{{ hostname }}:8081
 oldValue #confluent.controlcenter.connect.cluster=http://connect1:8083
 newValue confluent.controlcenter.connect.cluster=http://{{ hostname }}:8083
 
+oldValue #confluent.controlcenter.connect.<connect-cluster-name>.cluster=http://connect1:8083
+newValue confluent.controlcenter.connect.default.cluster=http://{{ hostname }}:8083
+
 oldValue #confluent.controlcenter.internal.topics.replication=3
 newValue confluent.controlcenter.internal.topics.replication=1
 
